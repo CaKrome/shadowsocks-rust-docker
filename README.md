@@ -1,5 +1,5 @@
 # shadowsocks-rust-docker
-Docker/Podman deployment solution of shadowsocks-rust
+Docker/Podman deployment solution of [shadowsocks-rust](https://github.com/shadowsocks/shadowsocks-rust)
 
 # Usage
 
