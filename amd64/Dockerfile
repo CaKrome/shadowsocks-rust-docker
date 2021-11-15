@@ -7,11 +7,11 @@ COPY sample_conf.json /etc/shadowsocks-rust/config.json
 
 RUN set -ex \
 	&& zypper in -y tar xz gzip wget \
-	&& wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.11.2/shadowsocks-v1.11.2.x86_64-unknown-linux-gnu.tar.xz \
+	&& wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.12.1/shadowsocks-v1.12.1.x86_64-unknown-linux-gnu.tar.xz \
 	&& wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz \
-	&& tar -xvf shadowsocks-v1.11.2.x86_64-unknown-linux-gnu.tar.xz \
+	&& tar -xvf shadowsocks-v1.12.1.x86_64-unknown-linux-gnu.tar.xz \
 	&& tar -xvf v2ray-plugin-linux-amd64-v1.3.1.tar.gz \
-	&& rm shadowsocks-v1.11.2.x86_64-unknown-linux-gnu.tar.xz \
+	&& rm shadowsocks-v1.12.1.x86_64-unknown-linux-gnu.tar.xz \
 	&& rm v2ray-plugin-linux-amd64-v1.3.1.tar.gz \
 	&& mv ss* /usr/bin \
 	&& mv v2ray-plugin_linux_amd64 v2ray-plugin \
