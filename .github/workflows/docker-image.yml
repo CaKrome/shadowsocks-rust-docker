@@ -17,3 +17,9 @@ jobs:
     - name: Build the amd64 Docker image
       working-directory: ./amd64
       run: docker build . --file Dockerfile --tag cakrome/ss-rust:$(date +%s)
+    - name: Build the arm64 Docker image
+      uses: docker/build-push-action@v2
+      with:
+        platforms: linux/arm64/v8
+        working-directory: ./arm64
+        run: docker build . --file Dockerfile --tag cakrome/ss-rust:$(date +%s)
