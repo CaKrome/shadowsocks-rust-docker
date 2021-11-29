@@ -14,6 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
+    - name: Build the amd64 Docker image
       working-directory: ./amd64
       run: docker build . --file Dockerfile --tag cakrome/ss-rust:$(date +%s)
