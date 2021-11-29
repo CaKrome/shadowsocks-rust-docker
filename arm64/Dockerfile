@@ -6,7 +6,7 @@ COPY server_block_local.acl /root/server_block_local.acl
 COPY sample_conf.json /etc/shadowsocks-rust/config.json
 
 RUN set -ex \
-	&& zypper in -y tar xz gzip wget \
+	&& zypper in -y tar xz gzip wget binutils \
 	&& wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.12.4/shadowsocks-v1.12.4.aarch64-unknown-linux-gnu.tar.xz \
 	&& wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-arm64-v1.3.1.tar.gz \
 	&& tar -xvf shadowsocks-v1.12.4.aarch64-unknown-linux-gnu.tar.xz \
