@@ -7,11 +7,11 @@ COPY sample_conf.json /etc/shadowsocks-rust/config.json
 
 RUN set -ex \
 	&& dnf install -y xz wget binutils \
-	&& wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.12.5/shadowsocks-v1.12.5.x86_64-unknown-linux-gnu.tar.xz \
+	&& wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.13.0/shadowsocks-v1.13.0.x86_64-unknown-linux-gnu.tar.xz \
 	&& wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz \
-	&& tar -xvf shadowsocks-v1.12.5.x86_64-unknown-linux-gnu.tar.xz \
+	&& tar -xvf shadowsocks-v1.13.0.x86_64-unknown-linux-gnu.tar.xz \
 	&& tar -xvf v2ray-plugin-linux-amd64-v1.3.1.tar.gz \
-	&& rm shadowsocks-v1.12.5.x86_64-unknown-linux-gnu.tar.xz \
+	&& rm shadowsocks-v1.13.0.x86_64-unknown-linux-gnu.tar.xz \
 	&& rm v2ray-plugin-linux-amd64-v1.3.1.tar.gz \
 	&& strip ss* \
 	&& mv ss* /usr/bin \
