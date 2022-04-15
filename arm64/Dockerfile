@@ -7,11 +7,11 @@ COPY sample_conf.json /etc/shadowsocks-rust/config.json
 
 RUN set -ex \
 	&& dnf install -y xz wget binutils \
-	&& wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.14.1/shadowsocks-v1.14.1.aarch64-unknown-linux-gnu.tar.xz \
+	&& wget https://github.com/shadowsocks/shadowsocks-rust/releases/download/v1.14.3/shadowsocks-v1.14.3.aarch64-unknown-linux-gnu.tar.xz \
 	&& wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-arm64-v1.3.1.tar.gz \
-	&& tar -xvf shadowsocks-v1.14.1.aarch64-unknown-linux-gnu.tar.xz \
+	&& tar -xvf shadowsocks-v1.14.3.aarch64-unknown-linux-gnu.tar.xz \
 	&& tar -xvf v2ray-plugin-linux-arm64-v1.3.1.tar.gz \
-	&& rm shadowsocks-v1.14.1.aarch64-unknown-linux-gnu.tar.xz \
+	&& rm shadowsocks-v1.14.3.aarch64-unknown-linux-gnu.tar.xz \
 	&& rm v2ray-plugin-linux-arm64-v1.3.1.tar.gz \
 	&& strip ss* \
 	&& mv ss* /usr/bin \
@@ -21,4 +21,4 @@ RUN set -ex \
 
 VOLUME /etc/shadowsocks-rust
 ENV TZ=America/Toronto
-CMD [ "ssserver", "-c", "/etc/shadowsocks-rust/config.json", "--acl", "/root/server_block_local.acl" ]
+CMD [ "ssservice", "server", "-c", "/etc/shadowsocks-rust/config.json", "--acl", "/root/server_block_local.acl" ]
