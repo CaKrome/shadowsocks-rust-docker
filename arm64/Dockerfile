@@ -1,4 +1,4 @@
-FROM almalinux/8-base
+FROM quay.io/almalinux/8-base
 LABEL maintainer="CaKrome <cakrome@protonmail.com>"
 
 WORKDIR /root
