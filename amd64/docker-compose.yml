@@ -3,14 +3,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      tags:
-        - "cakrome/ss-rust"
     container_name: ss-rust
     ports:
       - "23333:23333/tcp"
       - "23333:23333/udp"
     volumes:
       - type: bind
-        source: ./shadowsocks-rust-config
-        target: /etc/shadowsocks-rust
+        source: ./config.json
+        target: /etc/shadowsocks-rust/config.json
     restart: unless-stopped
