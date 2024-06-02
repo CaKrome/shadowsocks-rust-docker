@@ -40,12 +40,11 @@ WORKDIR /home/appuser
 USER appuser
 
 COPY server_block_local.acl .
-COPY --from=compile-image /root/sslocal /usr/bin/
-COPY --from=compile-image /root/ssmanager /usr/bin/
-COPY --from=compile-image /root/ssserver /usr/bin/
-COPY --from=compile-image /root/ssservice /usr/bin/
-COPY --from=compile-image /root/ssurl /usr/bin/
-
+COPY --from=compile-image /root/sslocal /usr/local/bin/
+COPY --from=compile-image /root/ssmanager /usr/local/bin/
+COPY --from=compile-image /root/ssserver /usr/local/bin/
+COPY --from=compile-image /root/ssservice /usr/local/bin/
+COPY --from=compile-image /root/ssurl /usr/local/bin/
 
 ENV TZ=America/Toronto
 
