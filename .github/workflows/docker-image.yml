@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build Docker Image
 
 on:
   workflow_dispatch:
@@ -16,5 +16,5 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the amd64 Docker image
-      working-directory: ./amd64
-      run: docker build . --file Dockerfile --tag cakrome/ss-rust:$(date +%s)
+      working-directory: .
+      run: docker compose build
