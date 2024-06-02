@@ -33,11 +33,11 @@ FROM quay.io/almalinux/almalinux:9 AS runtime-image
 
 RUN set -ex && dnf upgrade -y && dnf clean all
 
-RUN useradd --create-home appuser
+RUN useradd --create-home serviceuser
 
-WORKDIR /home/appuser
+WORKDIR /home/serviceuser
 
-USER appuser
+USER serviceuser
 
 COPY server_block_local.acl .
 COPY --from=compile-image /root/sslocal /usr/local/bin/
