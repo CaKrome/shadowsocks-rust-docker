@@ -15,6 +15,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the amd64 Docker image
+    - name: Build Docker image
       working-directory: .
       run: docker compose build
