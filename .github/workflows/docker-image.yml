@@ -4,17 +4,24 @@ on:
   workflow_dispatch:
 
   push:
-    branches: [ main ]
+    branches: [main]
 
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build Docker image
-      working-directory: .
-      run: docker compose build
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create .env file
+        run: |
+          cp .env.sample .env
+        shell: bash
+
+      - name: Build Docker image
+        working-directory: .
+        run: docker compose build
