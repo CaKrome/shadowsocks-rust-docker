@@ -22,7 +22,7 @@ cp .env.sample .env
 cp config.json.sample config.json
 ```
 
-Now edit the .env file and config.json to the configuation you like. Note that both files must use the same port.
+Now edit the `.env` file and `config.json` to the configuation you like. Note that both files must use the same port.
 
 ## Build the docker image
 
