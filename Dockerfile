@@ -2,7 +2,7 @@ FROM quay.io/almalinux/almalinux:9 AS compile-image
 
 ENV SHADOWSOCKS_VER=1.20.4
 ENV V2RAY_PLUGIN_VER=1.3.2
-ENV RUST_VER=1.80.1
+ENV RUST_VER=1.81.0
 
 WORKDIR /root
 
