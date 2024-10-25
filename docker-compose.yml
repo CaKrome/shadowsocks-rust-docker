@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: cakrome/shadowsocks-rust
     container_name: ss-rust
     ports:
       - "${PORT}:${PORT}/tcp"
