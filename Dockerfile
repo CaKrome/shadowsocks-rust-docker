@@ -1,8 +1,8 @@
-FROM quay.io/almalinux/almalinux:9 AS compile-image
+FROM quay.io/almalinuxorg/almalinux:9 AS compile-image
 
-ENV SHADOWSOCKS_VER=1.21.2
+ENV SHADOWSOCKS_VER=1.22.0
 ENV V2RAY_PLUGIN_VER=1.3.2
-ENV RUST_VER=1.82.0
+ENV RUST_VER=1.83.0
 
 WORKDIR /root
 
@@ -30,7 +30,7 @@ RUN mv /root/shadowsocks-rust-${SHADOWSOCKS_VER}/target/release/ssserver /root/
 RUN mv /root/shadowsocks-rust-${SHADOWSOCKS_VER}/target/release/ssservice /root/
 RUN mv /root/shadowsocks-rust-${SHADOWSOCKS_VER}/target/release/ssurl /root/
 
-FROM quay.io/almalinux/almalinux:9 AS runtime-image
+FROM quay.io/almalinuxorg/almalinux:9 AS runtime-image
 
 RUN set -ex && dnf upgrade -y && dnf clean all
 
