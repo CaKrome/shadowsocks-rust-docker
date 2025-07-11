@@ -1,7 +1,17 @@
 {
-    "server":"0.0.0.0",
-    "server_port":8388,
-    "password":"mypassword",
-    "method":"aes-256-gcm",
-    "mode":"tcp_and_udp"
+    "servers": [
+        {
+            "server": "::",
+            "server_port": 8388,
+            "method": "2022-blake3-aes-256-gcm",
+            "password": "3SYJ/f8nmVuzKvKglykRQDSgg10e/ADilkdRWrrY9HU=",
+            "users": [
+                {
+                    "name": "username",
+                    "password": "4w0GKJ9U3Ox7CIXGU4A3LDQAqP6qrp/tUi/ilpOR9p4="
+                }
+            ]
+        }
+    ],
+    "mode": "tcp_and_udp"
 }

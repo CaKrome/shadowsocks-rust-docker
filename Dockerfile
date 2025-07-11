@@ -1,7 +1,7 @@
 FROM quay.io/almalinuxorg/almalinux:9 AS compile-image
 
-ENV SHADOWSOCKS_VER=1.23.4
-ENV RUST_VER=1.87.0
+ENV SHADOWSOCKS_VER=1.23.5
+ENV RUST_VER=1.88.0
 
 WORKDIR /root
 
@@ -24,15 +24,13 @@ FROM quay.io/almalinuxorg/almalinux:9 AS runtime-image
 
 RUN set -ex && dnf upgrade -y && dnf clean all
 
-RUN useradd --create-home serviceuser
+RUN useradd --create-home ssuser
 
-WORKDIR /home/serviceuser
+WORKDIR /home/ssuser
 
-USER serviceuser
+USER ssuser
 
 COPY server_block_local.acl .
 COPY --from=compile-image /root/ssservice /usr/local/bin/
-
-ENV TZ=America/Toronto
 
 CMD [ "ssservice", "server", "-c", "/etc/shadowsocks-rust/config.json", "--acl", "server_block_local.acl" ]
