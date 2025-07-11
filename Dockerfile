@@ -24,13 +24,15 @@ FROM quay.io/almalinuxorg/almalinux:9 AS runtime-image
 
 RUN set -ex && dnf upgrade -y && dnf clean all
 
+RUN mkdir /etc/shadowsocks-rust/
+
 RUN useradd --create-home ssuser
 
 WORKDIR /home/ssuser
 
 USER ssuser
 
-COPY server_block_local.acl .
+COPY server_block_local.acl /etc/shadowsocks-rust/server_block_local.acl
 COPY --from=compile-image /root/ssservice /usr/local/bin/
 
-CMD [ "ssservice", "server", "-c", "/etc/shadowsocks-rust/config.json", "--acl", "server_block_local.acl" ]
+CMD [ "ssservice", "server", "-c", "/etc/shadowsocks-rust/config.json", "--acl", "/etc/shadowsocks-rust/server_block_local.acl" ]
